@@ -1,0 +1,97 @@
+.checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox__input {
+    opacity: 0;
+}
+
+.checkbox-inner {
+    cursor: pointer;
+}
+
+.checkbox__title {
+    display: inline-block;
+    position: relative;
+    padding: 5px 0 5px 25px;
+}
+
+.checkbox__title::before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 18px;
+    transition: .2s;
+
+    border: 2px solid #b4becf;
+    border-radius: 3px;
+    position: absolute;
+    top: 2px;
+    left: 0;
+}
+
+.checkbox__title::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 5px;
+
+    width: 5px;
+    height: 10px;
+    border: solid #ffffff;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+
+
+    display: block;
+    opacity: 0;
+}
+
+
+
+.checkbox__input:not(.checkbox__input_disabled).checkbox__input_hover + .checkbox__title::before {
+    border-color: #0068ff;
+}
+
+.checkbox__input.checkbox__input_checked + .checkbox__title::before  {
+    border-color: #0068ff;
+    background-color: #0068ff;
+}
+
+.checkbox__input.checkbox__input_checked + .checkbox__title::after {
+    opacity: 1;
+}
+
+.checkbox__input.checkbox__input_disabled + .checkbox__title::before {
+    border-color: #b4becf;
+    background-color: #f5f5fa;
+}
+.checkbox__input:not(.checkbox__input_checked).checkbox__input_disabled + .checkbox__title::after {
+    opacity: 0;
+    border-color: #b4becf;
+
+}
+.checkbox__input.checkbox__input_disabled + .checkbox__title::after {
+    opacity: 1;
+    border-color: #b4becf;
+}
+
+.checkbox__input.checkbox__input_disabled + .checkbox__title{
+    color: #b4becf;
+    cursor: default;
+}
+
+.checkbox__input:not(.checkbox__input_disabled).checkbox__input_active+ .checkbox__title::before{
+    border-color: #0068ff;
+}
+
+.checkbox__input.checkbox__input_focus+.checkbox__title::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.checkbox__input:not(checkbox__input_checked).checkbox__input_focus+.checkbox__title::before {
+    border-color: #80bdff;
+}
+
+
